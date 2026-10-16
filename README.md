@@ -18,8 +18,8 @@ Ma config macOS (Apple Silicon) : terminal, éditeurs et outils, habillés aux c
 ```bash
 git clone https://github.com/saturnes00/dotfiles.git ~/Desktop/Code/dotfiles
 cd ~/Desktop/Code/dotfiles
-./install.sh            # liens + outils Homebrew
-./install.sh --no-brew  # liens seulement
+bash install.sh            # liens + outils Homebrew
+bash install.sh --no-brew  # liens seulement
 ```
 
 Le script crée des liens symboliques vers les fichiers du repo. Ce qui existait déjà est sauvegardé dans `~/.dotfiles-backup/<date>/`, rien n'est écrasé.
