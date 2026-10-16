@@ -1,0 +1,9 @@
+{
+	"color_scheme": "Saturnes Vapor.sublime-color-scheme",
+	"theme": "Adaptive.sublime-theme",
+	"draw_white_space": ["all"],
+	"translate_tabs_to_spaces": false,
+	"detect_indentation": false,
+	"font_face": "Tahoma",
+	"font_size": 14,
+}

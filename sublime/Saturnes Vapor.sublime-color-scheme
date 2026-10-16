@@ -1,0 +1,169 @@
+// ─────────────────────────────────────────────
+//  SATURNES VAPOR — version Sublime Text
+//  Mêmes couleurs que le thème VS Code :
+//  nuit indigo profonde + bleu / rose / violet vaporwave
+// ─────────────────────────────────────────────
+{
+	"name": "Saturnes Vapor",
+	"author": "Saynt",
+
+	// La palette, définie une seule fois et réutilisée partout
+	"variables":
+	{
+		"fond":          "#0c0818",
+		"fond_profond":  "#07040f",
+		"ligne_active":  "#1a1033",
+		"popup":         "#120b26",
+		"bordure":       "#1e1440",
+		"espaces":       "#251a4a",
+		"guide_actif":   "#4a3480",
+		"num_ligne":     "#4a3a78",
+		"texte":         "#ece4ff",
+
+		"cyan":          "#2ee6ff",
+		"cyan_clair":    "#8ff0ff",
+		"bleu":          "#4d7cff",
+		"violet":        "#9d5cff",
+		"orchidee":      "#e070ff",
+		"rose_vif":      "#ff3d9a",
+		"rose":          "#ff3db1",
+		"rose_param":    "#ff68ca",
+		"rose_html":     "#ff6bcb",
+		"rose_css":      "#ff4ab7",
+		"rose_code_md":  "#ff43b4",
+		"rose_leger":    "#ffc2ea",
+		"lilas":         "#8f8fd8",
+		"commentaire":   "#5d4f8a",
+		"rouge":         "#ff4d6a"
+	},
+
+	// L'interface de l'éditeur (fond, curseur, sélection…)
+	"globals":
+	{
+		"background":               "var(fond)",
+		"foreground":               "var(texte)",
+		"caret":                    "var(cyan)",
+		"block_caret":              "var(cyan)",
+		"invisibles":               "var(espaces)",
+		"line_highlight":           "var(ligne_active)",
+		"gutter":                   "var(fond)",
+		"gutter_foreground":        "var(num_ligne)",
+		"gutter_foreground_highlight": "var(cyan)",
+
+		"selection":                "color(#5a2a7a a(0.6))",
+		"selection_border":         "color(#5a2a7a a(0.6))",
+		"inactive_selection":       "color(#5a2a7a a(0.33))",
+		"highlight":                "var(cyan)",
+		"find_highlight":           "var(orchidee)",
+		"find_highlight_foreground": "var(fond_profond)",
+
+		"guide":                    "var(bordure)",
+		"active_guide":             "var(guide_actif)",
+		"stack_guide":              "var(bordure)",
+
+		"brackets_options":         "underline",
+		"brackets_foreground":      "var(cyan)",
+		"bracket_contents_options": "underline",
+		"bracket_contents_foreground": "var(violet)",
+		"tags_options":             "stippled_underline",
+		"tags_foreground":          "var(bleu)",
+
+		"accent":                   "var(cyan)",
+		"shadow":                   "color(#000000 a(0.4))",
+		"popup_css":                "html { background-color: #120b26; color: #ece4ff; } a { color: #2ee6ff; }",
+
+		"line_diff_added":          "var(cyan)",
+		"line_diff_modified":       "var(orchidee)",
+		"line_diff_deleted":        "var(rouge)"
+	},
+
+	// La coloration du code
+	"rules":
+	[
+		// Commentaires → violet grisé, italique
+		{ "scope": "comment, punctuation.definition.comment",
+		  "foreground": "var(commentaire)", "font_style": "italic" },
+
+		// Mots-clés : if, while, return, const… → violet
+		{ "scope": "keyword, keyword.control, storage, storage.type, storage.modifier",
+		  "foreground": "var(violet)" },
+
+		// #include, #define → rose vif
+		{ "scope": "keyword.control.import.c, keyword.control.directive, meta.preprocessor, punctuation.definition.preprocessor, keyword.control.import.include",
+		  "foreground": "var(rose_vif)" },
+
+		// Fonctions → cyan
+		{ "scope": "entity.name.function, support.function, variable.function, meta.function-call variable.function",
+		  "foreground": "var(cyan)" },
+
+		// Chaînes de caractères → rose
+		{ "scope": "string, punctuation.definition.string",
+		  "foreground": "var(rose)" },
+		{ "scope": "constant.character.escape",
+		  "foreground": "var(cyan_clair)" },
+
+		// Nombres & constantes → orchidée
+		{ "scope": "constant.numeric, constant.language, constant.character, support.constant",
+		  "foreground": "var(orchidee)" },
+
+		// Types : int, char, classes… → bleu roi
+		{ "scope": "entity.name.type, support.type, entity.name.class, storage.type.c, storage.type.primitive",
+		  "foreground": "var(bleu)" },
+
+		// Variables & paramètres
+		{ "scope": "variable, variable.other",
+		  "foreground": "var(texte)" },
+		{ "scope": "variable.parameter",
+		  "foreground": "var(rose_param)", "font_style": "italic" },
+
+		// Opérateurs & ponctuation → lilas doux
+		{ "scope": "keyword.operator, punctuation.separator, punctuation.terminator, punctuation.section, punctuation.accessor",
+		  "foreground": "var(lilas)" },
+
+		// HTML en dégradé : balises bleu → attributs violet → le reste rose léger
+		{ "scope": "text.html",
+		  "foreground": "var(rose_leger)" },
+		{ "scope": "entity.name.tag, punctuation.definition.tag",
+		  "foreground": "var(bleu)" },
+		{ "scope": "entity.other.attribute-name",
+		  "foreground": "var(violet)", "font_style": "italic" },
+		{ "scope": "text.html string.quoted, text.html string.unquoted, text.html meta.attribute-with-value string, punctuation.separator.key-value.html",
+		  "foreground": "var(rose_html)" },
+		{ "scope": "constant.character.entity.html",
+		  "foreground": "var(orchidee)" },
+
+		// CSS : sélecteurs cyan, propriétés bleu, valeurs rose
+		{ "scope": "entity.other.attribute-name.class.css, entity.other.attribute-name.id.css, entity.name.tag.css, source.css entity.name.tag",
+		  "foreground": "var(cyan)", "font_style": "" },
+		{ "scope": "support.type.property-name, meta.property-name support.type",
+		  "foreground": "var(bleu)" },
+		{ "scope": "support.constant.property-value, constant.other.color, meta.property-value constant",
+		  "foreground": "var(rose_css)" },
+
+		// JS : this / self
+		{ "scope": "variable.language",
+		  "foreground": "var(violet)", "font_style": "italic" },
+
+		// Markdown
+		{ "scope": "markup.heading, entity.name.section",
+		  "foreground": "var(cyan)", "font_style": "bold" },
+		{ "scope": "markup.italic", "font_style": "italic" },
+		{ "scope": "markup.bold", "foreground": "var(orchidee)", "font_style": "bold" },
+		{ "scope": "markup.raw, markup.raw.inline, markup.raw.block",
+		  "foreground": "var(rose_code_md)" },
+
+		// Erreurs
+		{ "scope": "invalid, invalid.illegal",
+		  "foreground": "var(rouge)" },
+
+		// Teintes utilisées par Sublime pour l'interface (autocomplétion, Git…)
+		{ "scope": "region.bluish",   "foreground": "var(bleu)" },
+		{ "scope": "region.cyanish",  "foreground": "var(cyan)" },
+		{ "scope": "region.purplish", "foreground": "var(violet)" },
+		{ "scope": "region.pinkish",  "foreground": "var(rose)" },
+		{ "scope": "region.redish",   "foreground": "var(rouge)" },
+		{ "scope": "region.orangish", "foreground": "var(orchidee)" },
+		{ "scope": "region.yellowish","foreground": "var(rose_leger)" },
+		{ "scope": "region.greenish", "foreground": "var(cyan)" }
+	]
+}
